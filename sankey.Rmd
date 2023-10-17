@@ -1,4 +1,3 @@
-```{r, message = FALSE, warning=FALSE}
 # Install packages to make sankey diagrams
 install.packages("Rtools")
 install.packages("cli")
@@ -14,9 +13,7 @@ library(RColorBrewer)
 library(grid)
 library(gridExtra)
 library(ggpubr)
-```
 
-```{r, message = FALSE, results='hide'}
 # Read data as csv
 gas_waves_data <- read.csv("Waves_GasPayment.csv")
 
@@ -26,9 +23,7 @@ gas_waves_data$x3 <- as.character(gas_waves_data$x3)
 
 data_long <- gas_waves_data %>% # Convert data into long format using the ggsankey format
   make_long(x1, x2, x3) # See guidance on make_long() function on github
-```
 
-```{r, message = FALSE, results='hide'}
 # Set labels
 x_labels <- c('Wave 1', 'Wave 2', 'Wave 3')
 
@@ -63,15 +58,11 @@ GasPayment_Freq <- data_long %>%
   theme_sankey(base_size = 20)+
   xlab("")+
   scale_x_discrete(labels = x_labels) # Set labels from x_labels object above
-```
 
-```{r, message = FALSE, results='hide'}
 tiff('gaspayment_freq_500.tiff', units = "in", res = 500, height = 13, width = 17)
 plot(GasPayment_Freq)
 dev.off()
-```
 
-```{r, message = FALSE, results='hide'}
 # Read data as csv
 elec_waves_data <- read.csv("Waves_ElectricityPayment.csv")
 
@@ -81,9 +72,7 @@ elec_waves_data$x3 <- as.character(elec_waves_data$x3)
 
 data_long <- elec_waves_data %>% # Convert data into long format using the ggsankey format
   make_long(x1, x2, x3) # See guidance on make_long() function on github
-```
 
-```{r, message = FALSE, results='hide'}
 # Set labels
 x_labels <- c('Wave 1', 'Wave 2', 'Wave 3')
 
@@ -118,15 +107,11 @@ ElecPayment_Freq <- data_long %>%
   theme_sankey(base_size = 20)+
   xlab("")+
   scale_x_discrete(labels = x_labels) # Set labels from x_labels object above
-```
 
-```{r, message = FALSE, results='hide'}
 tiff('electricitypayment_freq_500.tiff', units = "in", res = 500, height = 13, width = 17)
 plot(ElecPayment_Freq)
 dev.off()
-```
 
-```{r, message = FALSE, results='hide'}
 install.packagesinstall.packages("GGally")
 library(GGally)
 install.packages("viridis")
