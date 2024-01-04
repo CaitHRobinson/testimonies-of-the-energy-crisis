@@ -59,6 +59,7 @@ GasPayment_Freq <- data_long %>%
   xlab("")+
   scale_x_discrete(labels = x_labels) # Set labels from x_labels object above
 
+# Export image
 tiff('gaspayment_freq_500.tiff', units = "in", res = 500, height = 13, width = 17)
 plot(GasPayment_Freq)
 dev.off()
@@ -108,6 +109,7 @@ ElecPayment_Freq <- data_long %>%
   xlab("")+
   scale_x_discrete(labels = x_labels) # Set labels from x_labels object above
 
+# Export image
 tiff('electricitypayment_freq_500.tiff', units = "in", res = 500, height = 13, width = 17)
 plot(ElecPayment_Freq)
 dev.off()
